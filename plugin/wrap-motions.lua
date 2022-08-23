@@ -19,3 +19,8 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end
 })
+
+-- Initialise the keybindings if 'wrap' is set.
+if vim.opt_local.wrap:get() then
+  this.enable()
+end
