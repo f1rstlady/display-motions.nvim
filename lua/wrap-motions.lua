@@ -18,6 +18,10 @@ local delBufMap = function(mode, lhs, opts)
 end
 
 M.enable = function()
+  if vim.b.wrapMotionsEnabled then
+    return
+  end
+
   setBufMap("",  "j",      "gj")
   setBufMap("",  "k",      "gk")
   setBufMap("",  "<Down>", "j",           {remap = true})
@@ -34,9 +38,15 @@ M.enable = function()
   setBufMap("n", "yy",     "0Y",          {remap = true})
   setBufMap("i", "<Down>", "<C-o><Down>", {remap = true})
   setBufMap("i", "<Up>",   "<C-o><Up>",   {remap = true})
+
+  vim.b.wrapMotionsEnabled = true
 end
 
 M.disable = function()
+  if not vim.b.wrapMotionsEnabled then
+    return
+  end
+
   delBufMap("",  "j")
   delBufMap("",  "k")
   delBufMap("",  "<Down>")
@@ -53,6 +63,8 @@ M.disable = function()
   delBufMap("n", "yy")
   delBufMap("i", "<Down>")
   delBufMap("i", "<Up>")
+
+  vim.b.wrapMotionsEnabled = false
 end
 
 return M
