@@ -1,4 +1,4 @@
-local this = require("wrap-motions")
+local wrap_motions = require("wrap-motions")
 
 local augroup = vim.api.nvim_create_augroup("wrap-motions", {})
 
@@ -10,9 +10,9 @@ vim.api.nvim_create_autocmd("OptionSet", {
   callback = function()
     -- Enable/disable display motions
     if vim.opt_local.wrap:get() then
-      this.enable()
+      wrap_motions.enable()
     else
-      this.disable()
+      wrap_motions.disable()
     end
   end
 })
@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
   desc = "Initialise display motions",
   callback = function()
     if vim.opt_local.wrap:get() then
-      this.enable()
+      wrap_motions.enable()
     end
   end
 })

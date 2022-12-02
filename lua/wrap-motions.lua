@@ -1,4 +1,4 @@
-local M = {}
+local wrap_motions = {}
 
 local forBuf = function(opts)
   if opts then
@@ -17,7 +17,7 @@ local delBufMap = function(mode, lhs, opts)
   vim.keymap.del(mode, lhs, forBuf(opts))
 end
 
-M.enable = function()
+wrap_motions.enable = function()
   if vim.b.wrapMotionsEnabled then
     return
   end
@@ -42,7 +42,7 @@ M.enable = function()
   vim.b.wrapMotionsEnabled = true
 end
 
-M.disable = function()
+wrap_motions.disable = function()
   if not vim.b.wrapMotionsEnabled then
     return
   end
@@ -56,15 +56,15 @@ M.disable = function()
   delBufMap("",  "$")
   delBufMap("n", "A")
   delBufMap("n", "C")
-  delBufMap("n", "cc")
+  --delBufMap("n", "cc")
   delBufMap("n", "D")
-  delBufMap("n", "dd")
+  --delBufMap("n", "dd")
   delBufMap("n", "Y")
-  delBufMap("n", "yy")
+  --delBufMap("n", "yy")
   delBufMap("i", "<Down>")
   delBufMap("i", "<Up>")
 
   vim.b.wrapMotionsEnabled = false
 end
 
-return M
+return wrap_motions
