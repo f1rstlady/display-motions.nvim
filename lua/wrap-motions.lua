@@ -13,15 +13,6 @@ wrap_motions.keymaps = {
       { "^", "g^" },
       { "$", "g$" },
     }},
-    { mode = "n", {
-      { "A", "$a", remap = true },
-      { "C", "c$", remap = true },
-      { "D", "d$", remap = true },
-      { "Y", "y$", remap = true },
-      { "cc", "0C", remap = true },
-      { "dd", "0D", remap = true },
-      { "yy", "0Y", remap = true },
-    }},
     { mode = "i", {
       { "<Down>", "<C-o><Down>", remap = true },
       { "<Up>", "<C-o><Up>", remap = true },
