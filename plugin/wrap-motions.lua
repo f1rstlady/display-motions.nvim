@@ -6,7 +6,7 @@ local augroup = vim.api.nvim_create_augroup("wrap-motions", {})
 vim.api.nvim_create_autocmd("OptionSet", {
   group = augroup,
   pattern = "wrap",
-  desc = "Toggle display motions",
+  desc = "Toggle wrap motions",
   callback = function()
     -- Enable/disable display motions
     if vim.opt_local.wrap:get() then
