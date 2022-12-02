@@ -17,7 +17,7 @@ local delBufMap = function(mode, lhs, opts)
   vim.keymap.del(mode, lhs, forBuf(opts))
 end
 
-wrap_motions.enable = function()
+function wrap_motions.enable()
   if vim.b.wrapMotionsEnabled then
     return
   end
@@ -42,7 +42,7 @@ wrap_motions.enable = function()
   vim.b.wrapMotionsEnabled = true
 end
 
-wrap_motions.disable = function()
+function wrap_motions.disable()
   if not vim.b.wrapMotionsEnabled then
     return
   end
