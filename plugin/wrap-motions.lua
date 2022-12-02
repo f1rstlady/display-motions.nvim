@@ -7,14 +7,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
   group = augroup,
   pattern = "wrap",
   desc = "Toggle wrap motions",
-  callback = function()
-    -- Enable/disable display motions
-    if vim.opt_local.wrap:get() then
-      wrap_motions.enable()
-    else
-      wrap_motions.disable()
-    end
-  end
+  callback = wrap_motions.toggle,
 })
 
 -- Initialise the keybindings if 'wrap' is set.

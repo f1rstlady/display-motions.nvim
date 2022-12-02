@@ -55,4 +55,12 @@ function wrap_motions.disable()
   vim.b.wrapMotionsEnabled = false
 end
 
+function wrap_motions.toggle()
+  if vim.opt_local.wrap:get() then
+    wrap_motions.enable()
+  else
+    wrap_motions.disable()
+  end
+end
+
 return wrap_motions
