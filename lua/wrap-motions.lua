@@ -22,6 +22,14 @@ wrap_motions.keymaps = {
 
 local appliedKeymaps = {}
 
+wrap_motions.debug = {
+  -- A readonly interface to the table of applied keymaps
+  appliedKeymaps = setmetatable({}, {
+    __index = appliedKeymaps,
+    __newindex = function() end,
+  })
+}
+
 function wrap_motions.enable()
   if vim.b.wrapMotionsEnabled then
     return
